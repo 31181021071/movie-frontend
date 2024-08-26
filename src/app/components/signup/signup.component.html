@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <form (ngSubmit)="signUpForm.valid && signUp(signUpForm)" class="login100-form validate-form p-l-55 p-r-55 p-t-140" #signUpForm="ngForm">
+        <span class="login100-form-title">
+          {{'SIGN_UP.LABEL.SIGN_UP' | translate}}
+        </span>
+        <span class="text-danger" *ngIf="errorMessage != null">{{errorMessage}}</span>
+        <div class="form-group">
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
+            <input class="input100" type="email" name="email" id="email" placeholder="{{'SIGN_UP.LABEL.EMAIL' | translate}}" required
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"    
+            [(ngModel)]="user.email" #email="ngModel">
+            <span class="focus-input100"></span>
+          </div>
+          <span class="text-danger" *ngIf="(email.touched || signUpForm.submitted) &&
+          email.errors?.['required']">{{'SIGN_UP.MESSAGE.EMAIL_REQUIRED' | translate}}</span>
+          <span class="text-danger" *ngIf="(email.touched || signUpForm.submitted) &&
+          email.errors?.['pattern']">{{'SIGN_UP.MESSAGE.EMAIL_PATTERN_INVALID' | translate}}</span>
+        </div>
+
+        <div class="form-group">
+          <div class="wrap-input100 validate-input" data-validate="Please enter password">
+            <input class="input100" type="password" name="password" placeholder="{{'SIGN_UP.LABEL.PASSWORD' | translate}}" id="password" required
+            [(ngModel)]="user.password" #password="ngModel" minlength="8">
+            <span class="focus-input100"></span>
+          </div>
+          <span class="text-danger" *ngIf="(password.touched || signUpForm.submitted) &&
+          password.errors?.['required']">{{'SIGN_UP.MESSAGE.PASSWORD_REQUIRED' | translate}}</span>
+          <span class="text-danger" *ngIf="(password.touched || signUpForm.submitted) &&
+          password.errors?.['minlength']">{{'SIGN_UP.MESSAGE.PASSWORD_LENGTH_INVALID' | translate}}</span>
+        </div>
+
+        <div class="container-login100-form-btn p-b-20">
+          <button class="login100-form-btn" type="submit">
+            {{'SIGN_UP.LABEL.SIGN_UP' | translate}}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

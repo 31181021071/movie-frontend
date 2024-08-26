@@ -4,19 +4,24 @@ import { User } from "src/app/model/user.model";
 import { Observable, Subject } from 'rxjs';
 import { AppConstants } from 'src/app/constants/app.constants';
 import { environment } from '../../../environments/environment';
+import { ApiService } from '../common/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private apiService: ApiService) {
     
   }
 
-  validateLoginDetails(user: User) {
+  validateLoginDetails(user: User): Observable<any> {
     window.sessionStorage.setItem("userdetails",JSON.stringify(user));
-    return this.http.get(environment.rooturl + AppConstants.LOGIN_API_URL, { observe: 'response',withCredentials: true });
+    return this.apiService.doGet(AppConstants.LOGIN_API_URL, true);
+  }
+
+  signUpNewAccount(param: any): Observable<any> {
+    return this.apiService.doPost(AppConstants.SIGN_UP_API_URL, param, true);
   }
 
 }

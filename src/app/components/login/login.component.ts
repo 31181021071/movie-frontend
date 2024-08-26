@@ -13,7 +13,16 @@ import { getCookie } from 'typescript-cookie';
 })
 export class LoginComponent implements OnInit {
   authStatus: string = "";
-  model = new User();
+  model: User = {
+    id: 0,
+    name: '',
+    email: '',
+    password: '',
+    role: '',
+    statusCd: '',
+    statusMsg: '',
+    authStatus: ''
+  };
 
   constructor(private loginService: LoginService, private router: Router) {
 

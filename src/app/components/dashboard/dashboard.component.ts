@@ -8,7 +8,16 @@ import { User } from 'src/app/model/user.model';
 })
 export class DashboardComponent implements OnInit {
 
-  user = new User();
+  user: User = {
+    id: 0,
+    name: '',
+    email: '',
+    password: '',
+    role: '',
+    statusCd: '',
+    statusMsg: '',
+    authStatus: ''
+  };
 
   constructor() {
     

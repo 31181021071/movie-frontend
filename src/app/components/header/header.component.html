@@ -8,12 +8,12 @@
     </div>
     <nav class="hright dnav">
       <ul>
-        <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active"><a routerLink="/home">Home</a></li>
-        <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active"><a routerLink="/login">Login</a></li>
-        <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active"><a routerLink="/contact">Contact US</a></li>
-        <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active"><a routerLink="/notices">Notices</a></li>
+        <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active"><a routerLink="/home">{{ 'HEADER.LABEL.HOME' | translate }}</a></li>
+        <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active"><a routerLink="/login">{{ 'HEADER.LABEL.LOGIN' | translate }}</a></li>
         <li *ngIf="user.authStatus=='AUTH'" routerLinkActive="active"><a routerLink="/dashboard">Dashboard</a></li>
         <li *ngIf="user.authStatus=='AUTH'" routerLinkActive="active"><a routerLink="/logout">Logout</a></li>
+        <li ><button (click)="switchLanguage('en')">{{ 'HEADER.LABEL.EN' | translate }}</button></li>
+        <li ><button (click)="switchLanguage('vi')">{{ 'HEADER.LABEL.VI' | translate }}</button></li>
       </ul>
     </nav>
   </div>

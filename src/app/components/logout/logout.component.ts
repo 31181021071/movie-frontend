@@ -10,7 +10,6 @@ import { User } from 'src/app/model/user.model';
 })
 export class LogoutComponent implements OnInit {
   
-  user = new User();
   constructor(private router : Router) { 
 
   }
@@ -18,6 +17,7 @@ export class LogoutComponent implements OnInit {
   ngOnInit(): void {
     window.sessionStorage.setItem("userdetails","");
     window.sessionStorage.setItem("XSRF-TOKEN","");
+    window.sessionStorage.setItem("Authorization","");
     this.router.navigate(['/login']);
   }
 

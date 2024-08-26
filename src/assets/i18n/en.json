@@ -1,0 +1,42 @@
+{
+    "HEADER": {
+        "LABEL": {
+            "HOME": "Home",
+            "LOGIN": "Login",
+            "EN": "English",
+            "VI": "Vietnam"
+        }
+    },
+    "LOGIN": {
+        "LABEL": {
+            "SIGN_IN": "SIGN IN",
+            "EMAIL": "Email",
+            "PASSWORD": "Password",
+            "FORGOT": "Forgot",
+            "SIGN_UP": "SIGN UP NOW",
+            "DONT_HAVE_ACCOUNT": "Don’t have an account?"
+        },
+        "MESSAGE": {
+            "EMAIL_REQUIRED": "Email is required !",
+            "EMAIL_PATTERN_INVALID": "Please provide a valid email address !",
+            "PASSWORD_REQUIRED": "Password is required !",
+            "PASSWORD_LENGTH_INVALID": "Password must be at least 8 characters long. !"
+        }
+    },
+    "SIGN_UP": {
+        "LABEL": {
+            "SIGN_UP": "SIGN UP",
+            "EMAIL": "Email",
+            "PASSWORD": "Password"
+        },
+        "MESSAGE": {
+            "EMAIL_REQUIRED": "Email is required !",
+            "EMAIL_PATTERN_INVALID": "Please provide a valid email address !",
+            "PASSWORD_REQUIRED": "Password is required !",
+            "PASSWORD_LENGTH_INVALID": "Password must be at least 8 characters long. !"
+        }
+    },
+    "WARNING": {
+        "W0001": "User already exist!"
+    }
+}

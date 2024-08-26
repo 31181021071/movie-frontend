@@ -1,0 +1,42 @@
+{
+    "HEADER": {
+        "LABEL": {
+            "HOME": "Trang chủ",
+            "LOGIN": "Đăng nhập",
+            "EN": "Tiếng anh",
+            "VI": "Tiếng việt"
+        }
+    },
+    "LOGIN": {
+        "LABEL": {
+            "SIGN_IN": "ĐĂNG NHẬP",
+            "EMAIL": "Email",
+            "PASSWORD": "Mật khẩu",
+            "FORGOT": "Quên",
+            "SIGN_UP": "ĐĂNG KÝ",
+            "DONT_HAVE_ACCOUNT": "Bạn chưa có có tài khoản?"
+        },
+        "MESSAGE": {
+            "EMAIL_REQUIRED": "Hãy nhập email !",
+            "EMAIL_PATTERN_INVALID": "Định dạng email không đúng",
+            "PASSWORD_REQUIRED": "Hãy nhập mật khẩu !",
+            "PASSWORD_LENGTH_INVALID": "Mật khẩu cần ít nhất 5 ký tự !"
+        }
+    },
+    "SIGN_UP": {
+        "LABEL": {
+            "SIGN_UP": "ĐĂNG KÝ",
+            "EMAIL": "Email",
+            "PASSWORD": "Mật khẩu"
+        },
+        "MESSAGE": {
+            "EMAIL_REQUIRED": "Hãy nhập email !",
+            "EMAIL_PATTERN_INVALID": "Định dạng email không đúng",
+            "PASSWORD_REQUIRED": "Hãy nhập mật khẩu !",
+            "PASSWORD_LENGTH_INVALID": "Mật khẩu cần ít nhất 5 ký tự !"
+        }
+    },
+    "WARNING": {
+        "W0001": "Tài khoản đã tồn tại!"
+    }
+}

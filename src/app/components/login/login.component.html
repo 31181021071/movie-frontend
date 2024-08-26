@@ -4,54 +4,54 @@
     <div class="wrap-login100">
       <form (ngSubmit)="loginForm.valid && validateUser(loginForm)" class="login100-form validate-form p-l-55 p-r-55 p-t-140" #loginForm="ngForm">
         <span class="login100-form-title">
-          Sign In
+          {{'LOGIN.LABEL.SIGN_IN' | translate}}
         </span>
         <div class="form-group">
           <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
-            <input class="input100" type="email" name="email" id="email" placeholder="Email" required
+            <input class="input100" type="email" name="email" id="email" placeholder="{{'LOGIN.LABEL.EMAIL' | translate}}" required
             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"    
             [(ngModel)]="model.email" #email="ngModel">
             <span class="focus-input100"></span>
           </div>
           <span class="text-danger" *ngIf="(email.touched || loginForm.submitted) &&
-          email.errors?.['required']">Error : Email is required !</span>
+          email.errors?.['required']">{{'LOGIN.MESSAGE.EMAIL_REQUIRED' | translate}}</span>
           <span class="text-danger" *ngIf="(email.touched || loginForm.submitted) &&
-          email.errors?.['pattern']">Error : Please provide a valid email address !</span>
+          email.errors?.['pattern']">{{'LOGIN.MESSAGE.EMAIL_PATTERN_INVALID' | translate}}</span>
         </div>
 
         <div class="form-group">
           <div class="wrap-input100 validate-input" data-validate="Please enter password">
-            <input class="input100" type="password" name="password" placeholder="Password" id="password" required
-            [(ngModel)]="model.password" #password="ngModel" minlength="5">
+            <input class="input100" type="password" name="password" placeholder="{{'LOGIN.LABEL.PASSWORD' | translate}}" id="password" required
+            [(ngModel)]="model.password" #password="ngModel" minlength="8">
             <span class="focus-input100"></span>
           </div>
           <span class="text-danger" *ngIf="(password.touched || loginForm.submitted) &&
-          password.errors?.['required']">Error : Password is required !</span>
+          password.errors?.['required']">{{'LOGIN.MESSAGE.PASSWORD_REQUIRED' | translate}}</span>
           <span class="text-danger" *ngIf="(password.touched || loginForm.submitted) &&
-          password.errors?.['minlength']">Error : Password must be at least 5 characters long. !</span>
+          password.errors?.['minlength']">{{'LOGIN.MESSAGE.PASSWORD_LENGTH_INVALID' | translate}}</span>
         </div>
         <div class="text-right p-t-13 p-b-23">
           <span class="txt1">
-            Forgot
+            {{'LOGIN.LABEL.FORGOT' | translate}}
           </span>
 
           <a href="#" class="txt2">
-            Password?
+            {{'LOGIN.LABEL.PASSWORD' | translate}}?
           </a>
         </div>
 
         <div class="container-login100-form-btn">
           <button class="login100-form-btn" type="submit">
-            Sign in
+            {{'LOGIN.LABEL.SIGN_IN' | translate}}
           </button>
         </div>
 
         <div class="flex-col-c p-t-40 p-b-20">
           <span class="txt1 p-b-9">
-            Don’t have an account?
+            {{'LOGIN.LABEL.DONT_HAVE_ACCOUNT' | translate}}
           </span>
-          <a href="#" class="txt3">
-            Sign up now
+          <a routerLink="/signup" class="txt3">
+            {{'LOGIN.LABEL.SIGN_UP' | translate}}
           </a>
         </div>
       </form>

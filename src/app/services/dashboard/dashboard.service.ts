@@ -10,4 +10,8 @@ import { User } from '../../model/user.model';
 export class DashboardService {
 
   constructor(private http:HttpClient) { }
+
+  getLoansDetails(id: number){
+    return this.http.get(environment.rooturl + AppConstants.LOANS_API_URL+ "?id="+id,{ observe: 'response',withCredentials: true });
+  }
 }

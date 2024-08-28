@@ -2,7 +2,6 @@
     "HEADER": {
         "LABEL": {
             "HOME": "Trang chủ",
-            "LOGIN": "Đăng nhập",
             "EN": "Tiếng anh",
             "VI": "Tiếng việt"
         }
@@ -36,7 +35,16 @@
             "PASSWORD_LENGTH_INVALID": "Mật khẩu cần ít nhất 5 ký tự !"
         }
     },
-    "WARNING": {
-        "W0001": "Tài khoản đã tồn tại!"
+    "MESSAGE": {
+        "W0001": "Tài khoản đã tồn tại!",
+        "E0001": "Lỗi hệ thống. Vui lòng liên hệ quản trị viên!",
+        "I0001": "Đăng ký thành công!"
+    },
+    "PROFILE_MENU": {
+        "LABEL": {
+            "PROFILE": "Hồ sơ",
+            "LOGIN": "Đăng nhập",
+            "LOGOUT": "Đăng xuất"
+        }
     }
 }

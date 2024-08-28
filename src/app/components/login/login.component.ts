@@ -41,7 +41,11 @@ export class LoginComponent implements OnInit {
         window.sessionStorage.setItem("userdetails",JSON.stringify(this.model));
         let xsrf = getCookie('XSRF-TOKEN')!;
         window.sessionStorage.setItem("XSRF-TOKEN",xsrf);
-        this.router.navigate(['dashboard']);
+        if (this.model.role == 'user') {
+          this.router.navigate(['dashboard']);
+        } else if (this.model.role == 'admin') {
+          this.router.navigate(['profile-admin']);
+        }
       });
 
   }

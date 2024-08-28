@@ -1,9 +1,37 @@
+/* styles.css */
+@import "~primeng/resources/themes/saga-blue/theme.css"; /* Or another theme */
+@import "~primeng/resources/primeng.min.css";
+@import "~primeicons/primeicons.css";
+@import "../src/assets/css/bootstrap.css";
+@import "../src/assets/css/font-awesome.css";
+
 /* You can add global styles to this file, and also import other style files */
 body {
   background:rgb(235, 234, 233);;
   background-size: cover;
   text-align: center;
   font-family: Georgia, serif;
+}
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main-content {
+  padding-top: 40px;
+}
+
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .container{
@@ -101,4 +129,15 @@ font-family: Georgia, serif;
 .thead-light{
   background-color: #57b846;
   color: #ff0000;
+}
+
+p-progressspinner {
+  top: 0;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: var(--maskbg);
 }

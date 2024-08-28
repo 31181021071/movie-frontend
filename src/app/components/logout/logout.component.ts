@@ -9,6 +9,16 @@ import { User } from 'src/app/model/user.model';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
+  model: User = {
+    id: 0,
+    name: '',
+    email: '',
+    password: '',
+    role: '',
+    statusCd: '',
+    statusMsg: '',
+    authStatus: ''
+  };
   
   constructor(private router : Router) { 
 

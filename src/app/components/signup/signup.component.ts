@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
     authStatus: ''
   };
 
-  errorMessage = null
+  errorMessage = ""
 
   constructor(
     private loginService: LoginService,
@@ -38,12 +38,12 @@ export class SignupComponent implements OnInit {
   signUp(signUpForm: NgForm) {
     let param = {
       email: this.user.email,
-      password: this.user.password
+      pwd: this.user.password
     }
     this.loginService.signUpNewAccount(param).subscribe(
       result => {
-        if (result.error == 'W0001') {
-          this.errorMessage = this.translateService.instant(result.error);
+        if (result.body.code != AppConstants.I0001) {
+          this.errorMessage = AppConstants.MESSAGE_TRANSLATE.concat(result.body.code);
         } else {
           this.router.navigate(['login']);
         }

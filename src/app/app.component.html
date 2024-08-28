@@ -1,1 +1,13 @@
 <router-outlet></router-outlet>
+<p-toast
+  appendTo="body"
+  styleClass="w-auto"
+  [style]="{ 'min-width': '350px' }"
+></p-toast>
+<p-progressSpinner
+  *ngIf="loadingService?.getLoading()"
+  styleClass="w-5rem h-5rem"
+  [ngStyle]="{ 'z-index': 99999 }"
+  strokeWidth="5"
+  animationDuration="5s"
+></p-progressSpinner>

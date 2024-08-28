@@ -1,5 +1,30 @@
 <div data-navigation="container" class="i-top-header">
-  <div class="wrapper top-section">
+  <p-menubar [model]="menuBarItems">
+    <ng-template pTemplate="item" let-item>
+      <a pRipple class="flex align-items-center p-menuitem-link" routerLink="item.url">
+        <span [class]="item.icon"></span>
+        <span class="ml-2">{{ item.label }}</span>
+      </a>
+    </ng-template>
+    <ng-template pTemplate="end">
+      <div class="flex align-items-center gap-2">
+        <p-avatar label="A" styleClass="mr-2" (click)=" user.authStatus=='AUTH' ? menuProfileLogin.toggle($event) : menuProfileNotLogin.toggle($event)" shape="circle" size="large" [style]="{ 'background-color': '#dee9fc', color: '#1a2551' }">
+        </p-avatar>
+        <p-overlayPanel #menuProfileLogin>
+          <ul class="ul-menu-profile list-unstyled bg-light p-0 m-0">
+            <li class="p-2" (click)="handleProfileClick()">{{ 'PROFILE_MENU.LABEL.PROFILE' | translate }}</li>
+            <li class="p-2" (click)="handleLogoutClick()">{{ 'PROFILE_MENU.LABEL.LOGOUT' | translate }}</li>
+          </ul>
+        </p-overlayPanel>
+        <p-overlayPanel #menuProfileNotLogin>
+          <ul class="ul-menu-profile list-unstyled bg-light p-0 m-0">
+            <li class="p-2" (click)="handleLoginClick()">{{ 'PROFILE_MENU.LABEL.LOGIN' | translate }}</li>
+          </ul>
+        </p-overlayPanel>
+      </div>
+  </ng-template>
+  </p-menubar>
+  <!-- <div class="wrapper top-section">
     <div class="hleft"><a class="logo selfLogo" [routerLink]="user.authStatus!='AUTH' ? ['/home'] : ['/dashboard']"><img alt="logo"
           src="../assets/images/logo.png"></a>
     </div>
@@ -9,13 +34,30 @@
     <nav class="hright dnav">
       <ul>
         <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active"><a routerLink="/home">{{ 'HEADER.LABEL.HOME' | translate }}</a></li>
-        <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active"><a routerLink="/login">{{ 'HEADER.LABEL.LOGIN' | translate }}</a></li>
         <li *ngIf="user.authStatus=='AUTH'" routerLinkActive="active"><a routerLink="/dashboard">Dashboard</a></li>
-        <li *ngIf="user.authStatus=='AUTH'" routerLinkActive="active"><a routerLink="/logout">Logout</a></li>
-        <li ><button (click)="switchLanguage('en')">{{ 'HEADER.LABEL.EN' | translate }}</button></li>
-        <li ><button (click)="switchLanguage('vi')">{{ 'HEADER.LABEL.VI' | translate }}</button></li>
+        <li ><p-dropdown 
+          [options]="listLanguage" 
+          [(ngModel)]="selectedLanguage" 
+          optionLabel="name"  
+          appendTo="body"
+          (ngModelChange)="switchLanguage(selectedLanguage.code)"></p-dropdown> </li>
+        <li>
+          <p-avatar label="A" styleClass="mr-2" (click)=" user.authStatus=='AUTH' ? menuProfileLogin.toggle($event) : menuProfileNotLogin.toggle($event)" shape="circle" size="large" [style]="{ 'background-color': '#dee9fc', color: '#1a2551' }">
+          </p-avatar>
+          <p-overlayPanel #menuProfileLogin>
+            <ul class="ul-menu-profile list-unstyled bg-light p-0 m-0">
+              <li class="p-2" (click)="handleProfileClick()">{{ 'PROFILE_MENU.LABEL.PROFILE' | translate }}</li>
+              <li class="p-2" (click)="handleLogoutClick()">{{ 'PROFILE_MENU.LABEL.LOGOUT' | translate }}</li>
+            </ul>
+          </p-overlayPanel>
+          <p-overlayPanel #menuProfileNotLogin>
+            <ul class="ul-menu-profile list-unstyled bg-light p-0 m-0">
+              <li class="p-2" (click)="handleLoginClick()">{{ 'PROFILE_MENU.LABEL.LOGIN' | translate }}</li>
+            </ul>
+          </p-overlayPanel>
+        </li>
       </ul>
     </nav>
-  </div>
+  </div> -->
 </div>
 <router-outlet></router-outlet>

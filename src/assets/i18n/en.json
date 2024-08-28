@@ -2,7 +2,6 @@
     "HEADER": {
         "LABEL": {
             "HOME": "Home",
-            "LOGIN": "Login",
             "EN": "English",
             "VI": "Vietnam"
         }
@@ -36,7 +35,18 @@
             "PASSWORD_LENGTH_INVALID": "Password must be at least 8 characters long. !"
         }
     },
-    "WARNING": {
-        "W0001": "User already exist!"
+    "MESSAGE": {
+        "W0001": "User already exist!",
+        "W0002": "User not exist!",
+        "E0001": "System error.Please contact administrator!",
+        "I0001": "Sign up successfully!",
+        "I0002": "Update successfully!"
+    },
+    "PROFILE_MENU": {
+        "LABEL": {
+            "PROFILE": "Profile",
+            "LOGIN": "Login",
+            "LOGOUT": "Logout"
+        }
     }
 }

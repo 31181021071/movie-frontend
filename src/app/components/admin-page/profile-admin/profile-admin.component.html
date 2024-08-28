@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="main-content">
+    <div class="container-fluid">
+        <h2>Profile admin page</h2>
+        <p-tabView>
+            <p-tabPanel header="Profile">
+                <div>
+                    <form (ngSubmit)="profileForm.valid && onUpdateProfile()" class="login100-form validate-form p-l-55 p-r-55 p-t-140" #profileForm="ngForm">
+                        <div class="form-group">
+                          <div>
+                            <label class="m-4">Admin name: </label>
+                            <input pInputText  type="text" name="name" id="name" required
+                            [(ngModel)]="user.name" #name="ngModel">
+                            <span class="focus-input100"></span>
+                          </div>
+                        </div>
+                        <div class="container-login100-form-btn p-b-20">
+                          <p-button type="submit">
+                            Save
+                          </p-button>
+                        </div>
+                      </form>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="User Management">
+                <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                </p>
+            </p-tabPanel>
+            <p-tabPanel header="Movie Management">
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                    qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                </p>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>

@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, finalize } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { LoadingService } from './loading.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loadingService: LoadingService) { }
 
   // Phương thức GET
   doGet(endpoint: string, withCredentials: boolean = false): Observable<any> {
     const url = environment.rooturl + endpoint;
+    this.loadingService.setLoading(true);
     return this.http.get(url, { observe: 'response', withCredentials }).pipe(
+      finalize(() => this.loadingService.setLoading(false))
       // catchError(this.handleError)
     );
   }
@@ -22,7 +25,9 @@ export class ApiService {
   // Phương thức POST
   doPost(endpoint: string, body: any, withCredentials: boolean = false): Observable<any> {
     const url = environment.rooturl + endpoint;
-    return this.http.post(url, body, { observe: 'response', withCredentials }).pipe(
+    this.loadingService.setLoading(true)
+    return this.http.post(url, body, { observe: 'response', withCredentials: withCredentials }).pipe(
+      finalize(() => this.loadingService.setLoading(false))
       // catchError(this.handleError)
     );
   }

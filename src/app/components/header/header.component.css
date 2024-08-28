@@ -1,8 +1,8 @@
-.i-top-header {
+/* .i-top-header {
   height: 70px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.46);
-  background-color: #171b1b;
-  background-image: linear-gradient(90deg, #000000 0, #000000 100%);
+  background-color: #b2b4b4;
+  background-image: linear-gradient(90deg, #c0bcbc 0, #c0bcbc 100%);
   display: flex;
   position: relative;
 }
@@ -136,5 +136,22 @@ a, a:link:hover, a:visited:hover {
   -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+} */
+
+/* .ul-menu-profile {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #ecf0f1;
+}
+
+.ul-menu-profile li {
+  padding: 8px 16px;
+  cursor: pointer;
+}*/
+
+.ul-menu-profile li:hover {
+  cursor: pointer;
+  background-color: rgb(156, 156, 154);
 }
 

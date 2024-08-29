@@ -30,27 +30,30 @@
             </div>
           </form>
     </div>
-    <div>
+    <div class="d-flex justify-content-between m-3">
         <p-paginator [rows]="size" [totalRecords]="totalMovieSearch" (onPageChange)="onChangePage($event)"></p-paginator>
+        <button type="button" (click)="openDialogDetail()" pButton icon="pi pi-plus-circle" label="New"></button>
     </div>
     <div>
         <p-table [value]="movieList" [tableStyle]="{'min-width': '50rem'}">
             <ng-template pTemplate="header">
                 <tr>
                     <th style="width: 10%;">ID</th>
-                    <th style="width: 30%;">Name</th>
-                    <th style="width: 30%;">Email</th>
-                    <th style="width: 10%;">Enable</th>
-                    <th style="width: 20%;">Create Date</th>
+                    <th style="width: 50%;">Movie name</th>
+                    <th style="width: 10%;">Country</th>
+                    <th style="width: 10%;">Release Year</th>
+                    <th style="width: 10%;">Rating</th>
+                    <th style="width: 10%;">Action</th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-user>
+            <ng-template pTemplate="body" let-movie>
                 <tr>
-                    <td style="width: 10%;">{{user.id}}</td>
-                    <td style="width: 30%;">{{user.name}}</td>
-                    <td style="width: 30%;">{{user.email}}</td>
-                    <td><p-checkbox [(ngModel)]="user.enable" [binary]="true" inputId="binary"></p-checkbox></td>
-                    <td style="width: 20%;">{{user.createDt}}</td>
+                    <td style="width: 10%;">{{movie.id}}</td>
+                    <td style="width: 50%;">{{movie.movieName}}</td>
+                    <td style="width: 10%;">{{movie.country}}</td>
+                    <td style="width: 10%;">{{movie.releaseYear}}</td>
+                    <td style="width: 10%;">{{movie.rating}}</td>
+                    <td style="width: 10%;"><button type="button" (click)="openDialogDetail(movie)" pButton icon="pi pi-pencil" label="Edit"></button></td>
                 </tr>
             </ng-template>
         </p-table>

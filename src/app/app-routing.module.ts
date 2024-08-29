@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'profile-user', component: ProfileUserComponent, canActivate: [AuthActivateRouteGuard]},
   { path: 'admin-page', component: AdminPageComponent, canActivate: [AuthActivateRouteGuard]},
+  // { path: 'admin-page', component: AdminPageComponent},
   { path: 'myLoans', component: LoansComponent, canActivate: [AuthActivateRouteGuard]},
 ];
 

@@ -37,6 +37,10 @@ import {ConfirmationService} from 'primeng/api';
 import {CheckboxModule} from 'primeng/checkbox';
 import { MovieManagementComponent } from './components/admin-page/movie-management/movie-management.component';
 import {MultiSelectModule} from 'primeng/multiselect';
+import { MovieManagementDetailComponent } from './components/admin-page/movie-management/movie-management-detail/movie-management-detail.component';
+import {DynamicDialogModule, DialogService} from 'primeng/dynamicdialog';
+import {FileUploadModule} from 'primeng/fileupload';
+import {ImageModule} from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -52,9 +56,13 @@ import {MultiSelectModule} from 'primeng/multiselect';
     LoansComponent,
     UserManagementComponent,
     AdminPageComponent,
-    MovieManagementComponent
+    MovieManagementComponent,
+    MovieManagementDetailComponent
   ],
   imports: [
+    ImageModule,
+    FileUploadModule,
+    DynamicDialogModule,
     MultiSelectModule,
     CheckboxModule,
     ConfirmDialogModule,
@@ -87,6 +95,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
     })
   ],
   providers: [
+    DialogService,
     ConfirmationService,
     MessageService,
     {

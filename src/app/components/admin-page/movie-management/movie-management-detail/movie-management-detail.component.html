@@ -1,0 +1,8 @@
+<div>
+    <p-fileUpload name="myfile[]" url="./upload.php"
+        accept="image/*"(onSelect)="onFileSelect($event)" mode="basic" chooseLabel="Choose image">
+    </p-fileUpload>
+    <div class="image-container">
+        <p-image *ngIf="imageUrl" [src]="imageUrl" [alt]="altText" [preview]="true"></p-image>
+    </div>
+</div>

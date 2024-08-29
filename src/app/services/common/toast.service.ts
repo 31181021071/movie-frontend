@@ -18,18 +18,18 @@ export class SharedToastService {
   }
 
   showInfo(detail: string) {
-    this.messageService.add({ severity: 'info', summary: '', detail: this.translate(detail), life: 150000 });
+    this.messageService.add({ severity: 'info', summary: '', detail: this.translate(detail), life: 100000 });
   }
 
   showWarn(detail: string) {
-    this.messageService.add({ severity: 'warn', summary: '', detail: this.translate(detail), life: 150000 });
+    this.messageService.add({ severity: 'warn', summary: '', detail: this.translate(detail), life: 100000 });
   }
 
   showError(detail: string) {
-    this.messageService.add({ severity: 'error', summary: '', detail: this.translate(detail), life: 150000 });
+    this.messageService.add({ severity: 'error', summary: '', detail: this.translate(detail), life: 100000 });
   }
 
   showSuccess(detail: string) {
-    this.messageService.add({ severity: 'success', summary: '', detail: this.translate(detail), life: 150000 });
+    this.messageService.add({ severity: 'success', summary: '', detail: this.translate(detail), life: 100000 });
   }
 }

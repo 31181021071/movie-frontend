@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
     if (this.user.role == 'user') {
       this.router.navigate(['profile-user']);
     } else {
-      this.router.navigate(['profile-admin']);
+      this.router.navigate(['admin-page']);
     }
   }
 

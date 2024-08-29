@@ -1,0 +1,44 @@
+<div class="d-flex flex-column">
+    <div>
+        <form (ngSubmit)="onSearch()" #searchForm="ngForm" class="d-flex align-items-center mb-3 justify-content-center gap-3">
+            <div class="d-flex align-items-center">
+              <label for="name" class="me-2">User name: </label>
+              <input id="name" type="text" pInputText [(ngModel)]="searchCondition.name" name="name" />
+            </div>
+            <div class="d-flex align-items-center">
+                <label for="email" class="me-2">Email: </label>
+                <input id="email" type="text" pInputText [(ngModel)]="searchCondition.email" name="email" />
+              </div>
+          
+            <div class="d-flex align-items-center gap-3">
+              <button pButton type="submit" label="Search"></button>
+              <button (click)="onClear()" pButton type="button" label="Clear" class="p-button-danger"></button>
+            </div>
+          </form>
+    </div>
+    <div>
+        <p-paginator [rows]="size" [totalRecords]="totalUserSearch" (onPageChange)="onChangePage($event)"></p-paginator>
+    </div>
+    <div>
+        <p-table [value]="userList" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 10%;">ID</th>
+                    <th style="width: 30%;">Name</th>
+                    <th style="width: 30%;">Email</th>
+                    <th style="width: 10%;">Enable</th>
+                    <th style="width: 20%;">Create Date</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td style="width: 10%;">{{user.id}}</td>
+                    <td style="width: 30%;">{{user.name}}</td>
+                    <td style="width: 30%;">{{user.email}}</td>
+                    <td><p-checkbox [(ngModel)]="user.enable" [binary]="true" inputId="binary" (onChange)="onChangeEnable(user)"></p-checkbox></td>
+                    <td style="width: 20%;">{{user.createDt}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

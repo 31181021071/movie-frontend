@@ -9,6 +9,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ProfileUserComponent } from './components/profile-user/profile-user.component';
 import { ProfileAdminComponent } from './components/admin-page/profile-admin/profile-admin.component';
 import { LoansComponent } from './components/loans/loans.component';
+import { AdminPageComponent } from './components/admin-page/admin-page/admin-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'profile-user', component: ProfileUserComponent, canActivate: [AuthActivateRouteGuard]},
-  { path: 'profile-admin', component: ProfileAdminComponent, canActivate: [AuthActivateRouteGuard]},
+  { path: 'admin-page', component: AdminPageComponent, canActivate: [AuthActivateRouteGuard]},
   { path: 'myLoans', component: LoansComponent, canActivate: [AuthActivateRouteGuard]},
 ];
 

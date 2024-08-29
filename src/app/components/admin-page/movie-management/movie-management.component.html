@@ -1,0 +1,59 @@
+<div class="d-flex flex-column">
+    <div>
+        <form (ngSubmit)="onSearch()" #searchForm="ngForm" class="d-flex align-items-center mb-3 justify-content-center gap-3">
+            <div class="d-flex align-items-center">
+              <label for="movieName" class="me-2">Movie name: </label>
+              <input id="movieName" type="text" pInputText [(ngModel)]="searchCondition.movieName" name="movieName" />
+            </div>
+            <div class="d-flex align-items-center">
+                <label for="country" class="me-2">Country: </label>
+                <p-multiSelect id="country" [options]="listCountry" [(ngModel)]="searchCondition.country" optionLabel="codeName" optionValue="code" name="country"></p-multiSelect>
+            </div>
+            <div class="d-flex align-items-center">
+                <label for="releaseYear" class="me-2">Release Year: </label>
+                <p-multiSelect id="releaseYear" [options]="listReleaseYear" [(ngModel)]="searchCondition.releaseYear" optionLabel="label" optionValue="value" name="releaseYear"></p-multiSelect>
+            </div>
+            <div class="d-flex align-items-center">
+                <label for="ratingFrom" class="me-2">Rating From: </label>
+                <p-inputNumber [(ngModel)]="searchCondition.ratingFrom" inputId="ratingTo" mode="decimal" [minFractionDigits]="1" [maxFractionDigits]="1" name="ratingFrom" [min]="0" [max]="10"> 
+                </p-inputNumber>
+            </div>
+            <div class="d-flex align-items-center">
+                <label for="ratingTo" class="me-2">Rating To: </label>
+                <p-inputNumber [(ngModel)]="searchCondition.ratingTo" inputId="ratingTo" mode="decimal" [minFractionDigits]="1" [maxFractionDigits]="1" name="ratingTo" [min]="0" [max]="10"> 
+                </p-inputNumber>
+            </div>
+          
+            <div class="d-flex align-items-center gap-3">
+              <button pButton type="submit" label="Search"></button>
+              <button (click)="onClear()" pButton type="button" label="Clear" class="p-button-danger"></button>
+            </div>
+          </form>
+    </div>
+    <div>
+        <p-paginator [rows]="size" [totalRecords]="totalMovieSearch" (onPageChange)="onChangePage($event)"></p-paginator>
+    </div>
+    <div>
+        <p-table [value]="movieList" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 10%;">ID</th>
+                    <th style="width: 30%;">Name</th>
+                    <th style="width: 30%;">Email</th>
+                    <th style="width: 10%;">Enable</th>
+                    <th style="width: 20%;">Create Date</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td style="width: 10%;">{{user.id}}</td>
+                    <td style="width: 30%;">{{user.name}}</td>
+                    <td style="width: 30%;">{{user.email}}</td>
+                    <td><p-checkbox [(ngModel)]="user.enable" [binary]="true" inputId="binary"></p-checkbox></td>
+                    <td style="width: 20%;">{{user.createDt}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+

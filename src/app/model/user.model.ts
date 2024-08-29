@@ -4,10 +4,10 @@ export interface User{
   id: number,
   name: string,
   email : string,
-  password: string,
+  password?: string,
   role : string,
-  statusCd: string,
-  statusMsg : string,
-  authStatus : string,
-
+  statusCd?: string,
+  statusMsg?: string,
+  authStatus?: string,
+  isEnable?: string
 }

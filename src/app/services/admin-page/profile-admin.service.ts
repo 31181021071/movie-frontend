@@ -16,8 +16,7 @@ export class ProfileAdminService {
   }
 
   updateProfileAdmin(param: any): Observable<any> {
-    // return this.http.get(environment.rooturl + AppConstants.LOANS_API_URL+ "?id="+id,{ observe: 'response',withCredentials: true });
-    return this.apiService.doPost(AppConstants.LOANS_API_URL+ "?id="+2, true);
+    return this.apiService.doPost(AppConstants.UPDATE_PROFILE_API_URL, param, true);
   }
 
 }

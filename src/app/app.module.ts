@@ -28,6 +28,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { LoansComponent } from './components/loans/loans.component';
+import { UserManagementComponent } from './components/admin-page/user-management/user-management.component';
+import { AdminPageComponent } from './components/admin-page/admin-page/admin-page.component';
+import {PaginatorModule} from 'primeng/paginator';
+import {TableModule} from 'primeng/table';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {CheckboxModule} from 'primeng/checkbox';
+import { MovieManagementComponent } from './components/admin-page/movie-management/movie-management.component';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -40,9 +49,17 @@ import { LoansComponent } from './components/loans/loans.component';
     SignupComponent,
     ProfileUserComponent,
     ProfileAdminComponent,
-    LoansComponent
+    LoansComponent,
+    UserManagementComponent,
+    AdminPageComponent,
+    MovieManagementComponent
   ],
   imports: [
+    MultiSelectModule,
+    CheckboxModule,
+    ConfirmDialogModule,
+    TableModule,
+    PaginatorModule,
     ToastModule,
     InputTextModule,
     TabViewModule,
@@ -70,6 +87,7 @@ import { LoansComponent } from './components/loans/loans.component';
     })
   ],
   providers: [
+    ConfirmationService,
     MessageService,
     {
       provide : HTTP_INTERCEPTORS,

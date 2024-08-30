@@ -1,8 +1,64 @@
-<div>
+<!-- <div>
     <p-fileUpload name="myfile[]" url="./upload.php"
         accept="image/*"(onSelect)="onFileSelect($event)" mode="basic" chooseLabel="Choose image">
     </p-fileUpload>
-    <div class="image-container">
-        <p-image *ngIf="imageUrl" [src]="imageUrl" [alt]="altText" [preview]="true"></p-image>
+    <p-image *ngIf="imageUrl" [src]="imageUrl" [alt]="altText" width="250"></p-image>
+</div> -->
+<div class="p-fluid p-formgrid p-grid">
+    <!-- Upload file chỉ nhận ảnh -->
+    <div class="p-field p-col-12">
+      <label for="file" class="p-d-block">Upload Image</label>
+      <p-fileUpload
+        name="file"
+        accept="image/*"
+        mode="basic"
+        (onSelect)="onFileSelect($event)"
+        chooseLabel="Choose image"
+      ></p-fileUpload>
     </div>
-</div>
+  
+    <!-- Tên phim -->
+    <div class="p-field p-col-12">
+      <label for="movieName" class="p-d-block">Movie Name</label>
+      <input
+        id="movieName"
+        type="text"
+        pInputText
+        [(ngModel)]="movie.name"
+        placeholder="Enter movie name"
+      />
+    </div>
+  
+    <!-- Chọn quốc gia -->
+    <div class="p-field p-col-12">
+      <label for="country" class="p-d-block">Country</label>
+      <p-dropdown
+        [options]="countries"
+        [(ngModel)]="movie.country"
+        placeholder="Select a country"
+        optionLabel="name"
+      ></p-dropdown>
+    </div>
+  
+    <!-- Chọn năm -->
+    <div class="p-field p-col-12">
+      <label for="year" class="p-d-block">Year</label>
+      <p-dropdown
+        [options]="years"
+        [(ngModel)]="movie.year"
+        placeholder="Select a year"
+      ></p-dropdown>
+    </div>
+  
+    <!-- Text editor cho mô tả phim -->
+    <div class="p-field p-col-12">
+      <label for="description" class="p-d-block">Description</label>
+      <p-editor [(ngModel)]="movie.description"></p-editor>
+    </div>
+  
+    <!-- Button Submit -->
+    <div class="p-field p-col-12">
+      <button pButton type="button" label="Submit" (click)="submitForm()"></button>
+    </div>
+  </div>
+  

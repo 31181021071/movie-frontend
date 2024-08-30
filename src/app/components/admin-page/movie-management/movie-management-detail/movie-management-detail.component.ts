@@ -7,11 +7,17 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   styleUrls: ['./movie-management-detail.component.css']
 })
 export class MovieManagementDetailComponent implements OnInit {
+submitForm() {
+throw new Error('Method not implemented.');
+}
 
   data: any;
   imageUrl: string | ArrayBuffer | null = null;
   altText: string = 'Uploaded Image';
   selectedFile: File | null = null;
+movie: any;
+  countries: any[] = [];
+  years: any[] = [];
   constructor(
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig,

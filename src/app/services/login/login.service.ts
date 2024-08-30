@@ -16,7 +16,6 @@ export class LoginService {
   }
 
   validateLoginDetails(user: User): Observable<any> {
-    window.sessionStorage.setItem("userdetails",JSON.stringify(user));
     return this.apiService.doGet(AppConstants.LOGIN_API_URL, true);
   }
 

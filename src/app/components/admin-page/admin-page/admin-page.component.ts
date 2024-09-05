@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
+  activeTab: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onTabChange(event: any) {
+    this.activeTab = event.index;
   }
 
 }

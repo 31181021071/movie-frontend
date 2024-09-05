@@ -4,61 +4,95 @@
     </p-fileUpload>
     <p-image *ngIf="imageUrl" [src]="imageUrl" [alt]="altText" width="250"></p-image>
 </div> -->
-<div class="p-fluid p-formgrid p-grid">
+<div class="row">
     <!-- Upload file chỉ nhận ảnh -->
-    <div class="p-field p-col-12">
-      <label for="file" class="p-d-block">Upload Image</label>
-      <p-fileUpload
-        name="file"
-        accept="image/*"
-        mode="basic"
-        (onSelect)="onFileSelect($event)"
-        chooseLabel="Choose image"
-      ></p-fileUpload>
+    <div class="row mb-3">
+      <div class="col-3 d-flex align-items-center justify-content-end">
+        <label for="file" class="p-d-block">Upload Image</label>
+      </div>
+      <div class="col-6 d-flex justify-content-center">
+        <div class="d-flex align-items-center gap-3">
+          <p-fileUpload
+          #fileUpload
+          name="file"
+          accept="image/*"
+          mode="basic"
+          (onSelect)="onFileSelect($event)"
+          chooseLabel="Choose image"
+          cancelLabel="Cancel"
+          ></p-fileUpload>
+          <button class="p-button-danger" type="button" pButton label="Clear" icon="pi pi-times" (click)="clearFileSelection(fileUpload)"></button>
+        </div>
+      </div>
+      <div class="col-3">
+        <p-image *ngIf="imageUrl" [src]="imageUrl" [alt]="altText" width="250" height="250" [preview]="true"></p-image>
+      </div>
     </div>
   
     <!-- Tên phim -->
-    <div class="p-field p-col-12">
-      <label for="movieName" class="p-d-block">Movie Name</label>
-      <input
+    <div class="row mb-3">
+      <div class="col-3 d-flex align-items-center justify-content-end">
+        <label for="movieName" class="p-d-block">Movie Name</label>
+      </div>
+      <div class="col-9">
+        <input
         id="movieName"
         type="text"
         pInputText
-        [(ngModel)]="movie.name"
+        [(ngModel)]="movie.movieName"
         placeholder="Enter movie name"
+        class="w-100"
+        name="movieName"
       />
+      </div>
     </div>
   
     <!-- Chọn quốc gia -->
-    <div class="p-field p-col-12">
-      <label for="country" class="p-d-block">Country</label>
-      <p-dropdown
+    <div class="row mb-3">
+      <div class="col-3 d-flex align-items-center justify-content-end">
+        <label for="country" class="p-d-block">Country</label>
+      </div>
+      <div class="col-9">
+        <p-dropdown
         [options]="countries"
         [(ngModel)]="movie.country"
         placeholder="Select a country"
         optionLabel="name"
-      ></p-dropdown>
+        name="country"
+        styleClass="w-100"
+        ></p-dropdown>
+      </div>
     </div>
   
     <!-- Chọn năm -->
-    <div class="p-field p-col-12">
-      <label for="year" class="p-d-block">Year</label>
-      <p-dropdown
-        [options]="years"
-        [(ngModel)]="movie.year"
+    <div class="row mb-3">
+      <div class="col-3 d-flex align-items-center justify-content-end">
+        <label for="releaseYear" class="p-d-block">Release Year</label>
+      </div>
+      <div class="col-9">
+        <p-dropdown
+        [options]="listReleaseYear"
+        [(ngModel)]="movie.releaseYear"
         placeholder="Select a year"
-      ></p-dropdown>
+        name="releaseYear"
+        styleClass="w-100"
+        ></p-dropdown>
+      </div>
     </div>
   
     <!-- Text editor cho mô tả phim -->
-    <div class="p-field p-col-12">
-      <label for="description" class="p-d-block">Description</label>
-      <p-editor [(ngModel)]="movie.description"></p-editor>
+    <div class="row mb-3">
+      <div class="col-3 d-flex align-items-center justify-content-end">
+        <label for="description" class="p-d-block">Description</label>
+      </div>
+      <div class="col-9">
+        <p-editor name="description" id="description" #quillEditor class="w-full" [style]="{ 'height': '320px' }" [(ngModel)]="movie.description"></p-editor>
+      </div>
     </div>
   
     <!-- Button Submit -->
-    <div class="p-field p-col-12">
-      <button pButton type="button" label="Submit" (click)="submitForm()"></button>
+    <div class="d-flex justify-content-end">
+      <button icon="pi pi-save" pButton type="button" label="Save" (click)="submitForm()"></button>
     </div>
   </div>
   

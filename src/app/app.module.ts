@@ -41,6 +41,7 @@ import { MovieManagementDetailComponent } from './components/admin-page/movie-ma
 import {DynamicDialogModule, DialogService} from 'primeng/dynamicdialog';
 import {FileUploadModule} from 'primeng/fileupload';
 import {ImageModule} from 'primeng/image';
+import {EditorModule} from 'primeng/editor';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {ImageModule} from 'primeng/image';
     MovieManagementDetailComponent
   ],
   imports: [
+    EditorModule,
     ImageModule,
     FileUploadModule,
     DynamicDialogModule,

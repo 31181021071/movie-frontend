@@ -66,9 +66,9 @@ export class MovieManagementComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.listReleaseYear = this.generateReleaseYearArray();
     this.movieManagementService.getInit().subscribe((response) => {
       this.listCountry = response.body.listCountry;
-      this.listReleaseYear = this.generateReleaseYearArray();
     });
   }
 
@@ -122,7 +122,7 @@ export class MovieManagementComponent implements OnInit {
     let param = {
       title: "Movie Detail",
       data: movie,
-      width: '90vw'
+      width: '60vw'
     }
     this.dialogService.openDialog(MovieManagementDetailComponent, param);
   }
